@@ -20,6 +20,9 @@ public class ConstantUtil {
     protected static final int [] INT_SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999,
             99999999, 999999999, Integer.MAX_VALUE };
 
+    protected static final long [] LONG_SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999,
+            99999999, 999999999, Long.MAX_VALUE };
+
 
     public static final String SAMPLE_FORMATTER = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String UTC_ZONE_ID = "UTC";
