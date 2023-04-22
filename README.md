@@ -52,7 +52,6 @@ See the [Instruction](#instruction) section for the usage.
             -  [DateTimeUtil](#datetimeutil)
             -  [ResponseUtil](#responseutil)
             -  [ConstantUtil](#constantutil)
-        
 - [Contact Me](#contact)
 - [Contributing](#Contributing)
 
@@ -122,7 +121,7 @@ Set up maven and java in your machine.
 
 <a name="commonutil"></a>
 ##### CommonUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `CommonUtil class` that you can apply in your application.
 
 ```java
 
@@ -156,7 +155,7 @@ Set up maven and java in your machine.
 
 <a name="validationutil"></a>
 ##### ValidationUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `ValidationUtil class` that you can apply in your application.
 
 ```java
 
@@ -239,7 +238,7 @@ Set up maven and java in your machine.
 
 <a name="passwordutil"></a>
 ##### PasswordUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `PasswordUtil class` that you can apply in your application.
 
 ```java
 
@@ -265,7 +264,7 @@ Set up maven and java in your machine.
 
 <a name="datetimeutil"></a>
 ##### DatetimeUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `DateTimeUtil class` that you can apply in your application.
 
 ```java
 
@@ -361,7 +360,7 @@ Set up maven and java in your machine.
 
 <a name="responseutil"></a>
 ##### ResponseUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `ResponseUtil class` that you can apply in your application.
 
 ```java
 
@@ -374,7 +373,7 @@ Set up maven and java in your machine.
 
 <a name="constantutil"></a>
 ##### ConstantUtil
-* Here are the sample usage that you can apply in your application.
+* Here are the sample usage for `ConstantUtil class` that you can apply in your application.
 
 ```java
 
