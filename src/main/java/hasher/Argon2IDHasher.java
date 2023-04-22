@@ -9,9 +9,9 @@ import java.util.Base64;
 import static helper.ConstantUtil.SIGN_REGEX;
 
 /**
- * Author: Ye Win
- * Created_Date: 15/06/2021
- * Project: @{<a href="https://github.com/yewin-mm/helper-util">...</a>}
+ * Author: Ye Win,
+ * Created_Date: 15/06/2021,
+ * Project_Link: <a href="https://github.com/yewin-mm/helper-util"></a>,
  * Package: hasher
  */
 

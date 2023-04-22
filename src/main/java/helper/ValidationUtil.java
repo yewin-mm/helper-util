@@ -10,9 +10,9 @@ import java.util.regex.Pattern;
 import static helper.ConstantUtil.*;
 
 /**
- * Author: Ye Win
- * Created_Date: 15/06/2021
- * Project: @{<a href="https://github.com/yewin-mm/helper-util">...</a>}
+ * Author: Ye Win,
+ * Created_Date: 15/06/2021,
+ * Project_Link: <a href="https://github.com/yewin-mm/helper-util"></a>,
  * Package: helper
  */
 
@@ -25,7 +25,7 @@ public class ValidationUtil {
 
     /**
      * String validation which to check input string is null or empty
-     * @param input - String
+     * @param input String
      * @return boolean - true if empty
      *                 - false if not empty
      */
@@ -36,8 +36,8 @@ public class ValidationUtil {
 
     /**
      * String validation which to check input string is null or empty and print as per user input message if empty
-     * @param input - String
-     * @param message - String
+     * @param input String
+     * @param message String
      * @return boolean - true and print as per input message if empty
      *                 - false if not empty
      */
@@ -49,7 +49,7 @@ public class ValidationUtil {
 
     /**
      * Collection (List, Set) validation which to check collection is empty or not
-     * @param collection - Collection (List, Set)
+     * @param collection Collection (List, Set)
      * @return boolean - true if empty collection
      *                 - false if not empty collection
      */
@@ -60,8 +60,8 @@ public class ValidationUtil {
 
     /**
      * Collection (List, Set) validation which to check collection is empty or not
-     * @param collection - Collection (List, Set)
-     * @param message - String
+     * @param collection Collection (List, Set)
+     * @param message String
      * @return boolean - true and print if as per input message empty collection
      *                 - false if not empty collection
      */
@@ -72,7 +72,7 @@ public class ValidationUtil {
 
     /**
      * Email validation which to check input email address has valid format or not.
-     * @param email - String
+     * @param email String
      * @return boolean - true if valid email format
      *                 - false if not valid format
      */
@@ -87,8 +87,8 @@ public class ValidationUtil {
 
     /**
      * Email validation which to check input email address has valid format or not and print as per user input message if not has valid format
-     * @param email string
-     * @param message - String
+     * @param email String
+     * @param message String
      * @return boolean - true if valid email format
      *                 - false and print as per input message if not valid format
      */
@@ -100,7 +100,7 @@ public class ValidationUtil {
 
     /**
      * Integer validation which to check input Integer, int is positive or not
-     * @param input - Integer, int
+     * @param input Integer, int
      * @return boolean - true if positive number
      *                 - false if not positive number
      */
@@ -111,8 +111,8 @@ public class ValidationUtil {
 
     /**
      * Integer validation which to check input Integer, int is positive or not
-     * @param input - Integer, int
-     * @param message - String
+     * @param input Integer, int
+     * @param message String
      * @return boolean - true if positive number
      *                 - false and print as per input message if not positive number
      */
@@ -123,7 +123,7 @@ public class ValidationUtil {
 
     /**
      * Long validation which to check input Long, long is positive or not
-     * @param input - Long, long
+     * @param input Long, long
      * @return boolean - true if positive number
      *                 - false if not positive number
      */
@@ -134,8 +134,8 @@ public class ValidationUtil {
 
     /**
      * Long validation which to check input Long, long is positive or not
-     * @param input - Long, long
-     * @param message - String
+     * @param input Long, long
+     * @param message String
      * @return boolean - true if positive number
      *                 - false and print as per input message if not positive number
      */

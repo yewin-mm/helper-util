@@ -6,9 +6,9 @@ import pojo.StatusObj;
 import static helper.DateTimeUtil.getCurrentDateTime;
 
 /**
- * Author: Ye Win
- * Created_Date: 15/06/2021
- * Project: @{<a href="https://github.com/yewin-mm/helper-util">...</a>}
+ * Author: Ye Win,
+ * Created_Date: 15/06/2021,
+ * Project_Link: <a href="https://github.com/yewin-mm/helper-util"></a>,
  * Package: helper
  */
 
