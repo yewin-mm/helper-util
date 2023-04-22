@@ -6,7 +6,7 @@
 
     <groupId>io.github.yewin-mm</groupId>
     <artifactId>helper-util</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>Helper Utility Application</name>
     <description>A small simple utility project which is to help some java applications by utilizing common basic methods</description>
