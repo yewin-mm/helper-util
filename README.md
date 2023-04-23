@@ -90,9 +90,10 @@ You should know about basic java and maven knowledge first.
 <a name="clone-project"></a>
 ### 🥡 Clone Project
 * If you want to check my code or contribute, you can clone the project with below command.
-* If you just want to use my library, just add the dependency as shown in below instruction section.
+* If you just want to use my library, just add the dependency as shown in below [instruction](#instruction) section.
    ```sh
    git clone https://github.com/yewin-mm/helper-util.git
+  
    ```
 
 <a name="prerequisites"></a>
