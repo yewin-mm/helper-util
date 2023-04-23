@@ -104,7 +104,7 @@ Set up maven and java in your machine.
 
 <a name="add-dependency"></a>
 #### Add Dependency
-* Firstly, add this dependency in your `pom.xml` file.
+* Firstly, add this dependency inside your `pom.xml` file in your java maven project.
    ```sh
     <dependency>
       <groupId>io.github.yewin-mm</groupId>
