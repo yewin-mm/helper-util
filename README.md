@@ -397,80 +397,80 @@ Set up maven and java in your machine.
 * Below are constant values
 
 
-| KEY  			| Value 		                                                  |
-| ------------- |-----------------------------------------------------------|
-| SPACE_REGEX  | \s*,\s*                                                   |
-| EMAIL_REGEX  | ^[\w!#$%&amp;'*+/=?`{                                     |}~^-]+(?:\.[\w!#$%&amp;'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}$  |
-| SIGN_REGEX  | \\\\$                                                     |
-| SAMPLE_FORMATTER  | yyyy-MM-dd HH:mm:ss.SSS                                   |
-| UTC_ZONE_ID  | UTC                                                       |
-| MM_ZONE_ID  | Asia/Yangon                                               |
-| VALUE_IS_EXISTED_MESSAGE  | Value is already existed.                                 |
-| VALUE_IS_EXISTED_PARAM_MESSAGE  | Value is already existed: {}                              |
-| RECORD_IS_EXISTED_MESSAGE  | Records is already existed.                               |
-| RECORD_IS_EXISTED_PARAM_MESSAGE  | Records is already existed: {}                            |
-| CANNOT_FIND_RECORD_BY_ID_MESSAGE  | Can't find records by id.                                 |
-| CANNOT_FIND_RECORD_BY_ID_PARAM_MESSAGE  | Can't find records by id: {}                              |
-| CANNOT_FIND_RECORD_BY_NAME_MESSAGE  | Can't find records by name.                               |
-| CANNOT_FIND_RECORD_BY_NAME_PARAM_MESSAGE  | Can't find records by name: {}                            |
-| CANNOT_FIND_RECORD_BY_VALUE_MESSAGE  | Can't find records by value.                              |
-| CANNOT_FIND_RECORD_BY_VALUE_PARAM_MESSAGE  | Can't find records by value: {}                           |
-| CANNOT_FIND_ANY_RECORD_MESSAGE  | Can't find any records.                                   |
-| NO_RECORD_MESSAGE  | There is no record.                                       |
-| CANNOT_ADD_RECORD_MESSAGE  | Can't add any records.                                    |
-| SUCCESS_ADD_RECORD_MESSAGE  | Successfully added records.                               |
-| INPUT_NULL_OR_EMPTY_MESSAGE  | Input value is null or empty.                             |
-| VALUE_NULL_OR_EMPTY_MESSAGE  | Value is null or empty.                                   |
-| INPUT_NULL_OR_EMPTY_PARAM_MESSAGE  | Value is null or empty, input: {}                         |
-| VALUE_NULL_OR_EMPTY_PARAM_MESSAGE  | Value is null or empty, value: {}                         |
-| NULL_OR_EMPTY_PARAM_MESSAGE  | {} is null or empty, input: {}                            |
-| NULL_OR_NOT_POSITIVE_PARAM_MESSAGE  | {} is null or not positive number, input: {}              |
-| INVALID_FORMAT_MESSAGE  | Invalid format.                                           |
-| INVALID_FORMAT_PARAM_MESSAGE  | {} is invalid format.                                     |
-| INVALID_FORMAT_INPUT_PARAM_MESSAGE  | {} is invalid format, input: {}                           |
-| MAXIMUM_REACH  | {} is reach at maximum limit, maximum limit: {}           |
-| ERROR_PARAM_MESSAGE  | Error: {}                                                 |
-| INTERNAL_ERROR_MESSAGE  | Internal error.                                           |
-| INTERNAL_SERVER_ERROR_MESSAGE  | Internal server error.                                    |
-| GENERAL_ERROR_MESSAGE  | Something went wrong. Please contact to your administrator. |
-| TRY_AGAIN_ERROR_MESSAGE  | Something went wrong. Please try again later.             |
-| CANNOT_CALL_API_MESSAGE  | Can't call the api.                                       |
-| CANNOT_CALL_API_PARAM_MESSAGE  | Can't call the api, url: {}                               |
-| CANNOT_LOAD_DATA_MESSAGE  | Can't load the data.                                      |
-| SUCCESS_MESSAGE  | SUCCESS                                                   |
-| FAIL_MESSAGE  | FAIL                                                      |
-| SUCCESSFUL_MESSAGE  | SUCCESSFUL                                                |
-| LOADING_MESSAGE  | LOADING                                                   |
-| PENDING_MESSAGE  | PENDING                                                   |
-| UNDER_REVIEW_MESSAGE  | UNDER REVIEW                                              |
-| FINISHED_REVIEW_MESSAGE  | FINISHED REVIEW                                           |
-| PROCESSING_MESSAGE  | PROCESSING                                                |
-| ON_GOING_MESSAGE  | ON GOING                                                  |
-| PRODUCTION_MESSAGE  | PRODUCTION                                                |
-| GO_LIVE_MESSAGE  | GO LIVE                                                   |
-| HOLDING_MESSAGE  | HOLDING                                                   |
-| RESTRICT_MESSAGE  | RESTRICT                                                  |
-| MAINTAIN_MESSAGE  | MAINTAIN                                                  |
-| CLOSE_MESSAGE  | CLOSE                                                     |
-| SHUTDOWN_MESSAGE  | SHUTDOWN                                                  |
-| SUSPEND_MESSAGE  | SUSPEND                                                   |
-| REMOVE_MESSAGE  | REMOVE                                                    |
-| DELETE_MESSAGE  | DELETE                                                    |
-| SUCCESSFULLY_CREATED_MESSAGE  | Successfully created record.                              |
-| FAIL_CREATE_MESSAGE  | Failed to create record.                                  |
-| OK_CODE  | 200 |
-| CREATED_CODE  | 201 |
-| BAD_REQUEST_CODE  | 400 |
-| UNAUTHORIZED_CODE  | 401 |
-| FORBIDDEN_CODE  | 403 |
-| NOT_FOUND_CODE  | 404 |
-| INTERNAL_SERVER_ERROR_CODE  | 500 |
-| NOT_IMPLEMENTED_CODE  | 501 |
-| SERVICE_UNAVAILABLE_CODE  | 503 |
-| INFO  | INFO |
-| WARN  | WARN |
-| DEBUG  | DEBUG |
-| ERROR  | ERROR |
+| KEY  			| Value 		                                                        |
+| ------------- |-----------------------------------------------------------------|
+| SPACE_REGEX  | \\\s*,\\\s*                                                     |
+| EMAIL_REGEX  | check inside ConstantUtils class as my email regex include pipe |
+| SIGN_REGEX  | \\\\$                                                           |
+| SAMPLE_FORMATTER  | yyyy-MM-dd HH:mm:ss.SSS                                         |
+| UTC_ZONE_ID  | UTC                                                             |
+| MM_ZONE_ID  | Asia/Yangon                                                     |
+| VALUE_IS_EXISTED_MESSAGE  | Value is already existed.                                       |
+| VALUE_IS_EXISTED_PARAM_MESSAGE  | Value is already existed: {}                                    |
+| RECORD_IS_EXISTED_MESSAGE  | Records is already existed.                                     |
+| RECORD_IS_EXISTED_PARAM_MESSAGE  | Records is already existed: {}                                  |
+| CANNOT_FIND_RECORD_BY_ID_MESSAGE  | Can't find records by id.                                       |
+| CANNOT_FIND_RECORD_BY_ID_PARAM_MESSAGE  | Can't find records by id: {}                                    |
+| CANNOT_FIND_RECORD_BY_NAME_MESSAGE  | Can't find records by name.                                     |
+| CANNOT_FIND_RECORD_BY_NAME_PARAM_MESSAGE  | Can't find records by name: {}                                  |
+| CANNOT_FIND_RECORD_BY_VALUE_MESSAGE  | Can't find records by value.                                    |
+| CANNOT_FIND_RECORD_BY_VALUE_PARAM_MESSAGE  | Can't find records by value: {}                                 |
+| CANNOT_FIND_ANY_RECORD_MESSAGE  | Can't find any records.                                         |
+| NO_RECORD_MESSAGE  | There is no record.                                             |
+| CANNOT_ADD_RECORD_MESSAGE  | Can't add any records.                                          |
+| SUCCESS_ADD_RECORD_MESSAGE  | Successfully added records.                                     |
+| INPUT_NULL_OR_EMPTY_MESSAGE  | Input value is null or empty.                                   |
+| VALUE_NULL_OR_EMPTY_MESSAGE  | Value is null or empty.                                         |
+| INPUT_NULL_OR_EMPTY_PARAM_MESSAGE  | Value is null or empty, input: {}                               |
+| VALUE_NULL_OR_EMPTY_PARAM_MESSAGE  | Value is null or empty, value: {}                               |
+| NULL_OR_EMPTY_PARAM_MESSAGE  | {} is null or empty, input: {}                                  |
+| NULL_OR_NOT_POSITIVE_PARAM_MESSAGE  | {} is null or not positive number, input: {}                    |
+| INVALID_FORMAT_MESSAGE  | Invalid format.                                                 |
+| INVALID_FORMAT_PARAM_MESSAGE  | {} is invalid format.                                           |
+| INVALID_FORMAT_INPUT_PARAM_MESSAGE  | {} is invalid format, input: {}                                 |
+| MAXIMUM_REACH  | {} is reach at maximum limit, maximum limit: {}                 |
+| ERROR_PARAM_MESSAGE  | Error: {}                                                       |
+| INTERNAL_ERROR_MESSAGE  | Internal error.                                                 |
+| INTERNAL_SERVER_ERROR_MESSAGE  | Internal server error.                                          |
+| GENERAL_ERROR_MESSAGE  | Something went wrong. Please contact to your administrator.     |
+| TRY_AGAIN_ERROR_MESSAGE  | Something went wrong. Please try again later.                   |
+| CANNOT_CALL_API_MESSAGE  | Can't call the api.                                             |
+| CANNOT_CALL_API_PARAM_MESSAGE  | Can't call the api, url: {}                                     |
+| CANNOT_LOAD_DATA_MESSAGE  | Can't load the data.                                            |
+| SUCCESS_MESSAGE  | SUCCESS                                                         |
+| FAIL_MESSAGE  | FAIL                                                            |
+| SUCCESSFUL_MESSAGE  | SUCCESSFUL                                                      |
+| LOADING_MESSAGE  | LOADING                                                         |
+| PENDING_MESSAGE  | PENDING                                                         |
+| UNDER_REVIEW_MESSAGE  | UNDER REVIEW                                                    |
+| FINISHED_REVIEW_MESSAGE  | FINISHED REVIEW                                                 |
+| PROCESSING_MESSAGE  | PROCESSING                                                      |
+| ON_GOING_MESSAGE  | ON GOING                                                        |
+| PRODUCTION_MESSAGE  | PRODUCTION                                                      |
+| GO_LIVE_MESSAGE  | GO LIVE                                                         |
+| HOLDING_MESSAGE  | HOLDING                                                         |
+| RESTRICT_MESSAGE  | RESTRICT                                                        |
+| MAINTAIN_MESSAGE  | MAINTAIN                                                        |
+| CLOSE_MESSAGE  | CLOSE                                                           |
+| SHUTDOWN_MESSAGE  | SHUTDOWN                                                        |
+| SUSPEND_MESSAGE  | SUSPEND                                                         |
+| REMOVE_MESSAGE  | REMOVE                                                          |
+| DELETE_MESSAGE  | DELETE                                                          |
+| SUCCESSFULLY_CREATED_MESSAGE  | Successfully created record.                                    |
+| FAIL_CREATE_MESSAGE  | Failed to create record.                                        |
+| OK_CODE  | 200                                                             |
+| CREATED_CODE  | 201                                                             |
+| BAD_REQUEST_CODE  | 400                                                             |
+| UNAUTHORIZED_CODE  | 401                                                             |
+| FORBIDDEN_CODE  | 403                                                             |
+| NOT_FOUND_CODE  | 404                                                             |
+| INTERNAL_SERVER_ERROR_CODE  | 500                                                             |
+| NOT_IMPLEMENTED_CODE  | 501                                                             |
+| SERVICE_UNAVAILABLE_CODE  | 503                                                             |
+| INFO  | INFO                                                            |
+| WARN  | WARN                                                            |
+| DEBUG  | DEBUG                                                           |
+| ERROR  | ERROR                                                           |
 
 
 ***Have Fun and Enjoy in Learning Code***
