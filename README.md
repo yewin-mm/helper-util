@@ -44,6 +44,7 @@ See the [Instruction](#instruction) section for the usage.
 - [Getting Started](#getting-started)
     - [Before you begin](#before-you-begin)
     - [Clone Project](#clone-project)
+    - [Prerequisites](#prerequisites)
     - [Instruction](#instruction)
         -  [Add Dependency](#add-dependency) 
         -  [Usage](#usage)
