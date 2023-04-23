@@ -43,6 +43,7 @@ See the [Instruction](#instruction) section for the usage.
     - [Built With](#built-with)
 - [Getting Started](#getting-started)
     - [Before you begin](#before-you-begin)
+    - [Clone Project](#clone-project)
     - [Instruction](#instruction)
         -  [Add Dependency](#add-dependency) 
         -  [Usage](#usage)
@@ -85,6 +86,13 @@ You can use this helper utility by adding as dependency in your pom file.
 ### 🔔 Before you begin
 You should know about basic java and maven knowledge first. 
 
+<a name="clone-project"></a>
+### 🥡 Clone Project
+* If you want to check my code or contribute, you can clone the project with below command.
+* If you just want to use my library, just add the dependency as shown in below instruction section.
+   ```sh
+   git clone https://github.com/yewin-mm/helper-util.git
+   ```
 
 <a name="prerequisites"></a>
 ### 🔑 Prerequisites
