@@ -106,11 +106,12 @@ Set up maven and java in your machine.
 <a name="add-dependency"></a>
 #### Add Dependency
 * Firstly, add this dependency inside your `pom.xml` file in your java maven project.
+* Please check out the latest version in here, [maven-central-repository](https://central.sonatype.com/artifact/io.github.yewin-mm/helper-util/)
    ```sh
     <dependency>
       <groupId>io.github.yewin-mm</groupId>
       <artifactId>helper-util</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.3</version>
     </dependency>
    ```
 

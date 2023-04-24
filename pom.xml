@@ -6,7 +6,7 @@
 
     <groupId>io.github.yewin-mm</groupId>
     <artifactId>helper-util</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <name>Helper Utility Application</name>
     <description>A small simple utility project which is to help some java applications by utilizing common basic methods</description>
@@ -36,7 +36,7 @@
     <scm>
         <developerConnection>scm:git:ssh://github.com/yewin-mm/helper-util.git</developerConnection>
         <connection>${project.scm.developerConnection}</connection>
-        <url>https://github.com/yewin-mm/helper-util/master</url>
+        <url>https://github.com/yewin-mm/helper-util</url>
     </scm>
 
     <distributionManagement>
