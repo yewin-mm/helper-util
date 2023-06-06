@@ -144,6 +144,84 @@ public class ValidationUtil {
     }
 
 
+    /**
+     * Number validation which to check input String, input is number or not
+     * @param input String
+     * @return boolean - true if input is number
+     *                 - false if input is not number or exceed than integer size
+     */
+    public static boolean isIntegerNumber(String input){
+        try
+        {
+            Integer.parseInt(input);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
+    }
+
+
+    /**
+     * Number validation which to check input String, input is number or not
+     * @param input String
+     * @param message String
+     * @return boolean - true if input is number
+     *                 - false if input is not number or exceed than integer size and print as per input message
+     */
+    public static boolean isIntegerNumber(String input, String message){
+        try
+        {
+            Integer.parseInt(input);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return printNotNumber(input, message);
+        }
+    }
+
+
+    /**
+     * Number validation which to check input String, input is number or not
+     * @param input String
+     * @return boolean - true if input is number
+     *                 - false if input is not number or exceed than long size
+     */
+    public static boolean isLongNumber(String input){
+        try
+        {
+            Long.parseLong(input);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
+    }
+
+
+    /**
+     * Number validation which to check input String, input is number or not
+     * @param input String
+     * @param message String
+     * @return boolean - true if input is number
+     *                 - false if input is not number or exceed than long size and print as per input message
+     */
+    public static boolean isLongNumber(String input, String message){
+        try
+        {
+            Long.parseLong(input);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return printNotNumber(input, message);
+        }
+    }
+
+
 
     /**
      * Printing methods as per input messages and values
@@ -170,6 +248,11 @@ public class ValidationUtil {
 
     private static boolean printNegative(Long input, String message){
         LOG.warn(NULL_OR_NOT_POSITIVE_PARAM_MESSAGE, message, input);
+        return false;
+    }
+
+    private static boolean printNotNumber(String input, String message){
+        LOG.warn(NOT_NUMBER_PARAM_MESSAGE, message, input);
         return false;
     }
 

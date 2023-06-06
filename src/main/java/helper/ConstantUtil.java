@@ -11,7 +11,9 @@ public class ConstantUtil {
 
     private ConstantUtil(){}
 
-    public static final String SPACE_REGEX = "\\s*,\\s*";
+    public static final String SPACE_REGEX = "\\s+";
+
+    public static final String COMMA_AND_SPACE_REGEX = "\\s*,\\s*";
 
     public static final String EMAIL_REGEX = "^[\\w!#$%&amp;'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&amp;'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
@@ -61,6 +63,7 @@ public class ConstantUtil {
     public static final String INVALID_FORMAT_MESSAGE = "Invalid format.";
     public static final String INVALID_FORMAT_PARAM_MESSAGE = "{} is invalid format.";
     public static final String INVALID_FORMAT_INPUT_PARAM_MESSAGE = "{} is invalid format, input: {}";
+    public static final String NOT_NUMBER_PARAM_MESSAGE = "{} is not a number, input: {}";
 
     public static final String MAXIMUM_REACH = "{} is reach at maximum limit, maximum limit: {}";
 
