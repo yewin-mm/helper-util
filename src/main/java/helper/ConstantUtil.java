@@ -9,8 +9,13 @@ package helper;
 
 public class ConstantUtil {
 
-    private ConstantUtil(){}
+    private ConstantUtil() {
+    }
 
+
+    /**
+     * REGEX Constants
+     */
     public static final String SPACE_REGEX = "\\s+";
 
     public static final String COMMA_AND_SPACE_REGEX = "\\s*,\\s*";
@@ -19,19 +24,30 @@ public class ConstantUtil {
 
     public static final String SIGN_REGEX = "\\$";
 
-    protected static final int [] INT_SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999,
-            99999999, 999999999, Integer.MAX_VALUE };
 
-    protected static final long [] LONG_SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999,
-            99999999, 999999999, Long.MAX_VALUE };
+    /**
+     * Static Value Constants
+     */
+    protected static final int[] INT_SIZE_TABLE = {9, 99, 999, 9999, 99999, 999999, 9999999,
+            99999999, 999999999, Integer.MAX_VALUE};
+
+    protected static final long[] LONG_SIZE_TABLE = {9, 99, 999, 9999, 99999, 999999, 9999999,
+            99999999, 999999999, Long.MAX_VALUE};
 
 
+    /**
+     * Date Timezone Constants
+     */
     public static final String SAMPLE_FORMATTER = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String UTC_ZONE_ID = "UTC";
     public static final String MM_ZONE_ID = "Asia/Yangon";
+    public static final String SG_ZONE_ID = "Asia/Singapore";
+    public static final String INDIA_ZONE_ID = "Asia/Kolkata";
 
-    /** Below are general messages **/
 
+    /**
+     * General Message Constants
+     */
     public static final String VALUE_IS_EXISTED_MESSAGE = "Value is already existed.";
     public static final String VALUE_IS_EXISTED_PARAM_MESSAGE = "Value is already existed: {}";
 
@@ -101,6 +117,9 @@ public class ConstantUtil {
     public static final String SUCCESSFULLY_CREATED_MESSAGE = "Successfully created record.";
     public static final String FAIL_CREATE_MESSAGE = "Failed to create record.";
 
+    /**
+     * Code Constants
+     */
     public static final String OK_CODE = "200";
     public static final String CREATED_CODE = "201";
     public static final String BAD_REQUEST_CODE = "400";
@@ -111,10 +130,97 @@ public class ConstantUtil {
     public static final String NOT_IMPLEMENTED_CODE = "501";
     public static final String SERVICE_UNAVAILABLE_CODE = "503";
 
+    /**
+     * Status Constants
+     */
     public static final String INFO = "INFO";
     public static final String WARN = "WARN";
     public static final String DEBUG = "DEBUG";
     public static final String ERROR = "ERROR";
 
+
+    /**
+     * Fields Constants
+     */
+    public static final String NUMBER_FIELD = "number";
+    public static final String NO_FIELD = "no.";
+
+    public static final String USERNAME_FIELD = "userName";
+    public static final String NAME_FIELD = "name";
+    public static final String FIRST_NAME_FIELD = "firstName";
+    public static final String LAST_NAME_FIELD = "lastName";
+    public static final String MIDDLE_NAME_FIELD = "middleName";
+
+    public static final String PASSWORD_FIELD = "password";
+    public static final String EMAIL_FIELD = "email";
+    public static final String PHONE_NO_FIELD = "phoneNo";
+    public static final String PHONE_FIELD = "phone";
+
+    public static final String GENDER_FIELD = "gender";
+    public static final String MALE_FIELD = "male";
+    public static final String FEMALE_FIELD = "female";
+    public static final String AGE_FIELD = "age";
+
+    public static final String CURRENCY_FIELD = "currency";
+    public static final String CURRENCY_TYPE_FIELD = "currencyType";
+    public static final String USD_FIELD = "usd";
+    public static final String BALANCE_FIELD = "balance";
+    public static final String AMOUNT_FIELD = "amount";
+    public static final String PRICE_FIELD = "price";
+    public static final String TOKEN_FIELD = "token";
+    public static final String ACCOUNT_FIELD = "account";
+    public static final String ACCOUNT_TYPE_FIELD = "accountType";
+
+    public static final String CARD_FIELD = "card";
+    public static final String CARD_TYPE_FIELD = "cardType";
+
+    public static final String SERVICE_FIELD = "service";
+    public static final String SERVICES_FIELD = "services";
+    public static final String SERVICE_TYPE_FIELD = "serviceType";
+    public static final String SERVICE_ID_FIELD = "serviceId";
+    public static final String LEVEL_FIELD = "level";
+    public static final String TYPE_FIELD = "type";
+    public static final String CLASS_FIELD = "class";
+    public static final String COUNT_FIELD = "count";
+
+    public static final String PRODUCT_FIELD = "product";
+    public static final String PRODUCT_NAME_FIELD = "productName";
+    public static final String PRODUCT_ID_FIELD = "productId";
+    public static final String PROJECT_FIELD = "project";
+    public static final String PROJECT_NAME_FIELD = "projectName";
+
+
+    public static final String ADDRESS_FIELD = "address";
+    public static final String COUNTRY_FIELD = "country";
+    public static final String COUNTRY_NAME_FIELD = "countryName";
+    public static final String CITY_FIELD = "city";
+    public static final String CITY_NAME_FIELD = "cityName";
+    public static final String TOWNSHIP_FIELD = "township";
+    public static final String TOWNSHIP_NAME_FIELD = "townshipName";
+    public static final String REGION_FIELD = "region";
+    public static final String PROVINCE_FIELD = "province";
+    public static final String DISTRICT_FIELD = "district";
+    public static final String STATE_FIELD = "state";
+    public static final String POSTAL_CODE_FIELD = "postalCode";
+    public static final String POSTAL_FIELD = "postal";
+    public static final String ZIP_CODE_FIELD = "zipCode";
+    public static final String ZIP_FIELD = "zip";
+
+    public static final String URL_FIELD = "url";
+    public static final String LINK_FIELD = "link";
+    public static final String DETAILS_FIELD = "details";
+    public static final String REVIEW_FIELD = "review";
+    public static final String REMARKS_FIELD = "remarks";
+    public static final String DESCRIPTION_FIELD = "description";
+    public static final String MESSAGE_FIELD = "message";
+    public static final String MESSAGE_TYPE_FIELD = "messageType";
+    public static final String NOTIFICATION_FIELD = "notification";
+    public static final String NOTIFICATION_TYPE_FIELD = "notificationType";
+
+
+    public static final String DATE_FIELD = "date";
+    public static final String DAY_FIELD = "day";
+    public static final String MONTH_FIELD = "month";
+    public static final String YEAR_FIELD = "year";
 
 }

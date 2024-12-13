@@ -55,16 +55,16 @@ public class Argon2IDHasher {
     public Argon2Hash decode(String encodedHash) throws IllegalArgumentException {
         String[] parts = encodedHash.split(SIGN_REGEX);
 
-        if(parts.length != 2){
+        if (parts.length != 2) {
             throw new IllegalArgumentException("Invalid encoded Argon2-hash");
         }
 
         Argon2Parameters.Builder paramsBuilder = new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id)
-                                                        .withVersion(Argon2Parameters.ARGON2_VERSION_13)
-                                                        .withIterations(this.iterations)
-                                                        .withMemoryAsKB(this.memory)
-                                                        .withParallelism(this.parallelism)
-                                                        .withSalt(base64Decoder.decode(parts[0]));
+                .withVersion(Argon2Parameters.ARGON2_VERSION_13)
+                .withIterations(this.iterations)
+                .withMemoryAsKB(this.memory)
+                .withParallelism(this.parallelism)
+                .withSalt(base64Decoder.decode(parts[0]));
 
         return new Argon2Hash(base64Decoder.decode(parts[1]), paramsBuilder.build());
     }

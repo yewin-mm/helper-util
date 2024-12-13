@@ -148,7 +148,20 @@ Set up maven and java in your machine.
     // CommonUtil.printWarn();
     // CommonUtil.printError();
     // CommonUtil.printDebug();
-    
+
+    List<String> testList = List.of("value1", "value2");
+    testList = null; // make testList to be null for testing purpose.
+
+    for(String testValue : CommonUtil.safeList(testList)){ // we can use safeList to avoid NullPointerException
+        CommonUtil.printInfo(testValue);
+    }
+
+    Set<String> testSet = Set.of("value1", "value2");
+    testSet = null; // make testSet to be null for testing purpose.
+
+    for(String testValue : CommonUtil.safeSet(testSet)){ // we can use safeSet to avoid NullPointerException
+        CommonUtil.printInfo(testValue);
+    }
 
     int count = 35; // this is demo data and that value might get from request or anywhere
 
@@ -193,7 +206,7 @@ Set up maven and java in your machine.
 
 
     List<String> itemList = new ArrayList<>(); // this is demo data and that value might get from request or anywhere
-    if(ValidationUtil.isEmptyCollection(itemList)){ // isEmptyCollection method with one param
+    if(ValidationUtil.isEmptyCollection(itemList)){ // isEmptyCollection method with one param (you can also use isEmptyList method)
 
         // here, I used print warn method with one param from CommonUtil class.
         CommonUtil.printWarn("input list is null or empty, input: "+ itemList);
@@ -206,11 +219,12 @@ Set up maven and java in your machine.
 
 
     List<String> itemList1 = new ArrayList<>(); // this is demo data and that value might get from request or anywhere
-    if(!ValidationUtil.isEmptyCollection(itemList1, "itemList data")){ // isEmptyCollection method with two params for printing logs
+    if(!ValidationUtil.isEmptyCollection(itemList1, "itemList data")){ // isEmptyCollection method with two params for printing logs (you can also use isEmptyList method)
         // do your process when the input has data
     }
     // auto printing at console if you use two params methods
     // sample output at console -> 13:00:53.468 [main] WARN helper.ValidationUtil -- itemList data is null or empty, input: []
+            
     /** you can use Set instead of List */
     
 
@@ -407,6 +421,8 @@ Set up maven and java in your machine.
 | SAMPLE_FORMATTER  | yyyy-MM-dd HH:mm:ss.SSS                                         |
 | UTC_ZONE_ID  | UTC                                                             |
 | MM_ZONE_ID  | Asia/Yangon                                                     |
+| SG_ZONE_ID  | Asia/Singapore                                                  |
+| INDIA_ZONE_ID  | Asia/Kolkata                                                    |
 | VALUE_IS_EXISTED_MESSAGE  | Value is already existed.                                       |
 | VALUE_IS_EXISTED_PARAM_MESSAGE  | Value is already existed: {}                                    |
 | RECORD_IS_EXISTED_MESSAGE  | Records is already existed.                                     |
@@ -473,6 +489,75 @@ Set up maven and java in your machine.
 | WARN  | WARN                                                            |
 | DEBUG  | DEBUG                                                           |
 | ERROR  | ERROR                                                           |
+| ERROR  | ERROR                                                           |
+| NUMBER_FIELD  | number                                                          |
+| NO_FIELD  | no.                                                             |
+| USERNAME_FIELD  | userName                                                        |
+| NAME_FIELD  | name                                                            |
+| FIRST_NAME_FIELD  | firstName                                                       |
+| LAST_NAME_FIELD  | lastName                                                        |
+| MIDDLE_NAME_FIELD  | middleName                                                      |
+| PASSWORD_FIELD  | password                                                        |
+| EMAIL_FIELD  | email                                                           |
+| PHONE_NO_FIELD  | phoneNo                                                         |
+| PHONE_FIELD  | phone                                                           |
+| GENDER_FIELD  | gender                                                          |
+| MALE_FIELD  | male                                                            |
+| FEMALE_FIELD  | female                                                          |
+| AGE_FIELD  | age                                                             |
+| CURRENCY_FIELD  | currency                                                        |
+| CURRENCY_TYPE_FIELD  | currencyType                                                    |
+| USD_FIELD  | usd                                                             |
+| BALANCE_FIELD  | balance                                                         |
+| AMOUNT_FIELD  | amount                                                          |
+| PRICE_FIELD  | price                                                           |
+| TOKEN_FIELD  | token                                                           |
+| ACCOUNT_FIELD  | account                                                         |
+| ACCOUNT_TYPE_FIELD  | accountType                                                     |
+| CARD_FIELD  | card                                                            |
+| CARD_TYPE_FIELD  | cardType                                                        |
+| SERVICE_FIELD  | service                                                         |
+| SERVICES_FIELD  | services                                                        |
+| SERVICE_TYPE_FIELD  | serviceType                                                     |
+| SERVICE_ID_FIELD  | serviceId                                                       |
+| LEVEL_FIELD  | level                                                           |
+| TYPE_FIELD  | type                                                            |
+| CLASS_FIELD  | class                                                           |
+| COUNT_FIELD  | count                                                           |
+| PRODUCT_FIELD  | product                                                         |
+| PRODUCT_NAME_FIELD  | productName                                                     |
+| PRODUCT_ID_FIELD  | productId                                                       |
+| PROJECT_FIELD  | project                                                         |
+| PROJECT_NAME_FIELD  | projectName                                                     |
+| ADDRESS_FIELD  | address                                                         |
+| COUNTRY_FIELD  | country                                                         |
+| COUNTRY_NAME_FIELD  | countryName                                                     |
+| CITY_FIELD  | city                                                            |
+| CITY_NAME_FIELD  | cityName                                                        |
+| TOWNSHIP_FIELD  | township                                                        |
+| TOWNSHIP_NAME_FIELD  | townshipName                                                    |
+| REGION_FIELD  | region                                                          |
+| PROVINCE_FIELD  | province                                                        |
+| DISTRICT_FIELD  | district                                                        |
+| STATE_FIELD  | state                                                           |
+| POSTAL_CODE_FIELD  | postalCode                                                      |
+| POSTAL_FIELD  | postal                                                          |
+| ZIP_CODE_FIELD  | zipCode                                                         |
+| ZIP_FIELD  | zip                                                             |
+| URL_FIELD  | url                                                             |
+| LINK_FIELD  | link                                                            |
+| DETAILS_FIELD  | details                                                         |
+| REVIEW_FIELD  | review                                                          |
+| REMARKS_FIELD  | remarks                                                         |
+| DESCRIPTION_FIELD  | description                                                     |
+| MESSAGE_FIELD  | message                                                         |
+| MESSAGE_TYPE_FIELD  | messageType                                                     |
+| NOTIFICATION_FIELD  | notification                                                    |
+| NOTIFICATION_TYPE_FIELD  | notificationType                                                |
+| DATE_FIELD  | date                                                            |
+| DAY_FIELD  | day                                                             |
+| MONTH_FIELD  | month                                                           |
+| YEAR_FIELD  | year                                                            |
 
 
 ***Have Fun and Enjoy in Learning Code***
@@ -484,14 +569,6 @@ Name - Ye Win <br> LinkedIn profile -  [Ye Win](https://www.linkedin.com/in/ye-w
 
 Project Link: [Helper Utility](https://github.com/yewin-mm/helper-util)
 
-## 🥰 Becoming a Sponsor
-If you like any of my projects or if you want to support my work, please kindly consider becoming a sponsor. <br>
-It gives me great motivation and I can relentlessly maintain my projects and contribute to the open-source community.
-
-<a href="https://www.buymeacoffee.com/yewin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="150" ></a>
-
-
-<a name="becoming-a-sponsor"></a>
 ## 🥰 Becoming a Sponsor
 If you like any of my projects or if you want to support my work, please kindly consider becoming a sponsor. <br>
 It gives me great motivation and I can relentlessly maintain my projects and contribute to the open-source community.

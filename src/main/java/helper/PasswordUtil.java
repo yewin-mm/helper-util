@@ -16,10 +16,12 @@ public class PasswordUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
 
-    private PasswordUtil(){}
+    private PasswordUtil() {
+    }
 
     /**
      * Encode input Password by using Argon2IDHasher algorithm
+     *
      * @param rawPassword - String
      * @return String - encoded password value
      */
@@ -33,7 +35,7 @@ public class PasswordUtil {
             Argon2IDHasher argon2IDHasher = new Argon2IDHasher();
             return argon2IDHasher.encode(rawPassword);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             LOG.error("Cannot Encode Password.");
             return null;
@@ -43,10 +45,11 @@ public class PasswordUtil {
 
     /**
      * Check and Validate between input raw password and encoded password
-     * @param rawPassword - String
+     *
+     * @param rawPassword     - String
      * @param encodedPassword - String
      * @return boolean - true if input password and encoded password are same
-     *                 - false if input password and encoded password are not same
+     * - false if input password and encoded password are not same
      */
     public static boolean checkPassword(String rawPassword, String encodedPassword) {
         try {
@@ -72,10 +75,10 @@ public class PasswordUtil {
                 return constantTimeArrayEquals(decodedHash.getHash(), hashBytes);
             }
 
-        }catch (IllegalArgumentException var6) {
+        } catch (IllegalArgumentException var6) {
             LOG.warn("Malformed Password Hash", var6);
             return false;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             LOG.error("Cannot Check Password.");
             return false;
@@ -89,7 +92,7 @@ public class PasswordUtil {
         } else {
             int result = 0;
 
-            for(int i = 0; i < expected.length; ++i) {
+            for (int i = 0; i < expected.length; ++i) {
                 result |= expected[i] ^ actual[i];
             }
 

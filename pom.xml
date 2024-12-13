@@ -6,7 +6,7 @@
 
     <groupId>io.github.yewin-mm</groupId>
     <artifactId>helper-util</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 
     <name>Helper Utility Application</name>
     <description>A small simple utility project which is to help some java applications by utilizing common basic methods</description>
@@ -60,13 +60,13 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.4.6</version>
+            <version>1.4.12</version>
         </dependency>
 
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
-            <version>1.73</version>
+            <version>1.78</version>
         </dependency>
 
     </dependencies>
@@ -123,7 +123,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
