@@ -124,7 +124,7 @@ Set up maven and java in your machine.
 <a name="usage"></a>
 #### Usage
 * There are six utility classes to use.
-1. CommonUtil      -> To use some common method like get integer length, printing out, etc.
+1. CommonUtil      -> To use some common methods like safe collection, get integer length, printing out, etc.
 2. ValidationUtil  -> To validate like empty String, email validation, empty Collection, etc.
 3. PasswordUtil    -> To encode and verify password.
 4. DateTimeUtil    -> To get datetime as per zoneId, two dates different, etc.
