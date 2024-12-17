@@ -24,6 +24,32 @@ public class ConstantUtil {
 
     public static final String SIGN_REGEX = "\\$";
 
+    public static final String SPACE_SEPARATOR = " ";
+    public static final String COMMA_SEPARATOR = ", ";
+    public static final String SELECT_SEPARATOR = " / ";
+    public static final String PIPE_SEPARATOR = " | ";
+    public static final String DASH_SEPARATOR = " - ";
+    public static final String EQUAL_SEPARATOR = " = ";
+
+    public static final String SINGLE_QUOTE = "'";
+    public static final String UNDERSCORE = "_";
+    public static final String DASH = "-";
+    public static final String EQUAL = "=";
+    public static final String PLUS = "+";
+    public static final String FULL_COLON = " : ";
+    public static final String AND = "&";
+    public static final String STAR = "*";
+    public static final String PERCENT = "%";
+    public static final String DOLLAR_SIGN = "$";
+    public static final String HASH = "#";
+    public static final String AT = "@";
+    public static final String PIPE = "|";
+    public static final String TILDE = "~";
+    public static final String COMMA = ",";
+    public static final String DOT = ".";
+    public static final String EMPTY_STRING = "";
+    public static final String ZERO = "0";
+
 
     /**
      * Static Value Constants
@@ -48,31 +74,51 @@ public class ConstantUtil {
     /**
      * General Message Constants
      */
+    public static final String REQUEST_DATA_PARAM_MESSAGE = "Request data: {}";
+    public static final String RESPONSE_DATA_PARAM_MESSAGE = "Response data: {}";
+    public static final String RESULT_PARAM_MESSAGE = "Result: {}";
+    public static final String INPUT_DATA_PARAM_MESSAGE = "Input data: {}";
+    public static final String OUTPUT_DATA_PARAM_MESSAGE = "Output data: {}";
+    public static final String EXISTED_PARAM_MESSAGE = "{} is already existed.";
     public static final String VALUE_IS_EXISTED_MESSAGE = "Value is already existed.";
     public static final String VALUE_IS_EXISTED_PARAM_MESSAGE = "Value is already existed: {}";
 
     public static final String RECORD_IS_EXISTED_MESSAGE = "Records is already existed.";
     public static final String RECORD_IS_EXISTED_PARAM_MESSAGE = "Records is already existed: {}";
 
-    public static final String CANNOT_FIND_RECORD_BY_ID_MESSAGE = "Can't find records by id.";
-    public static final String CANNOT_FIND_RECORD_BY_ID_PARAM_MESSAGE = "Can't find records by id: {}";
+    public static final String COULD_NOT_FIND_RECORD_BY_ID_MESSAGE = "Could not find records by id.";
+    public static final String COULD_NOT_FIND_RECORD_BY_ID_PARAM_MESSAGE = "Could not find records by id: {}";
 
-    public static final String CANNOT_FIND_RECORD_BY_NAME_MESSAGE = "Can't find records by name.";
-    public static final String CANNOT_FIND_RECORD_BY_NAME_PARAM_MESSAGE = "Can't find records by name: {}";
+    public static final String COULD_NOT_FIND_RECORD_BY_NAME_MESSAGE = "Could not find records by name.";
+    public static final String COULD_NOT_FIND_RECORD_BY_NAME_PARAM_MESSAGE = "Could not find records by name: {}";
 
-    public static final String CANNOT_FIND_RECORD_BY_VALUE_MESSAGE = "Can't find records by value.";
-    public static final String CANNOT_FIND_RECORD_BY_VALUE_PARAM_MESSAGE = "Can't find records by value: {}";
+    public static final String COULD_NOT_FIND_RECORD_BY_VALUE_MESSAGE = "Could not find records by value.";
+    public static final String COULD_NOT_FIND_RECORD_BY_VALUE_PARAM_MESSAGE = "Could not find records by value: {}";
 
-    public static final String CANNOT_FIND_ANY_RECORD_MESSAGE = "Can't find any records.";
+
+    public static final String COULD_NOT_FETCH_DATA_BY_ID_MESSAGE = "Could not fetch data by id.";
+    public static final String COULD_NOT_FETCH_DATA_BY_ID_PARAM_MESSAGE = "Could not fetch data by id: {}";
+
+    public static final String COULD_NOT_FIND_ANY_RECORD_MESSAGE = "Could not find any records.";
+    public static final String COULD_NOT_FETCH_ANY_RECORD_MESSAGE = "Could not fetch any records.";
     public static final String NO_RECORD_MESSAGE = "There is no record.";
 
-    public static final String CANNOT_ADD_RECORD_MESSAGE = "Can't add any records.";
+    public static final String COULD_NOT_ADD_RECORD_MESSAGE = "Could not add any records.";
     public static final String SUCCESS_ADD_RECORD_MESSAGE = "Successfully added records.";
 
+    public static final String VALUE_NULL_MESSAGE = "Value is null.";
+    public static final String INPUT_NULL_MESSAGE = "Input is null.";
     public static final String INPUT_NULL_OR_EMPTY_MESSAGE = "Input value is null or empty.";
     public static final String VALUE_NULL_OR_EMPTY_MESSAGE = "Value is null or empty.";
-    public static final String INPUT_NULL_OR_EMPTY_PARAM_MESSAGE = "Value is null or empty, input: {}";
+    public static final String INPUT_NULL_OR_EMPTY_PARAM_MESSAGE = "Input is null or empty, input: {}";
     public static final String VALUE_NULL_OR_EMPTY_PARAM_MESSAGE = "Value is null or empty, value: {}";
+
+    public static final String INPUT_JSON_STRING_MESSAGE = "Input json string";
+    public static final String INPUT_OBJECT_MESSAGE = "Input object";
+    public static final String INPUT_DATA_MESSAGE = "Input data";
+    public static final String INPUT_FILE_PATH_MESSAGE = "Input file path";
+
+    public static final String NULL_PARAM_MESSAGE = "{} is null.";
     public static final String NULL_OR_EMPTY_PARAM_MESSAGE = "{} is null or empty, input: {}";
     public static final String NULL_OR_NOT_POSITIVE_PARAM_MESSAGE = "{} is null or not positive number, input: {}";
 
@@ -81,16 +127,30 @@ public class ConstantUtil {
     public static final String INVALID_FORMAT_INPUT_PARAM_MESSAGE = "{} is invalid format, input: {}";
     public static final String NOT_NUMBER_PARAM_MESSAGE = "{} is not a number, input: {}";
 
-    public static final String MAXIMUM_REACH = "{} is reach at maximum limit, maximum limit: {}";
+    public static final String MAXIMUM_REACH_MESSAGE = "{} is reach at maximum limit.";
+    public static final String MAXIMUM_REACH_PARAM_MESSAGE = "{} is reach at maximum limit, maximum limit: {}";
 
     public static final String ERROR_PARAM_MESSAGE = "Error: {}";
     public static final String INTERNAL_ERROR_MESSAGE = "Internal error.";
     public static final String INTERNAL_SERVER_ERROR_MESSAGE = "Internal server error.";
     public static final String GENERAL_ERROR_MESSAGE = "Something went wrong. Please contact to your administrator.";
     public static final String TRY_AGAIN_ERROR_MESSAGE = "Something went wrong. Please try again later.";
-    public static final String CANNOT_CALL_API_MESSAGE = "Can't call the api.";
-    public static final String CANNOT_CALL_API_PARAM_MESSAGE = "Can't call the api, url: {}";
-    public static final String CANNOT_LOAD_DATA_MESSAGE = "Can't load the data.";
+
+    public static final String COULD_NOT_CALL_API_MESSAGE = "Could not call the api.";
+    public static final String COULD_NOT_CALL_API_PARAM_MESSAGE = "Could not call the api, url: {}";
+    public static final String COULD_NOT_LOAD_DATA_MESSAGE = "Could not load the data.";
+    public static final String COULD_NOT_READ_THE_DATA_MESSAGE = "Could not read the data.";
+    public static final String COULD_NOT_WRITE_THE_DATA_MESSAGE = "Could not write the data.";
+    public static final String COULD_NOT_READ_THE_FILE_MESSAGE = "Could not read the file.";
+    public static final String COULD_NOT_WRITE_THE_FILE_MESSAGE = "Could not write the file.";
+    public static final String COULD_NOT_CONVERT_TO_OBJECT_MESSAGE = "Could not convert to object.";
+    public static final String COULD_NOT_CONVERT_TO_JSON_MESSAGE = "Could not convert to json.";
+    public static final String COULD_NOT_CONVERT_TO_PARAM_MESSAGE = "Could not convert to {}";
+
+    public static final String COULD_NOT_SAVE_INTO_DATABASE_MESSAGE = "Could not save into database.";
+
+    public static final String FILE_WRITTEN_SUCCESS_MESSAGE = "File written successfully.";
+    public static final String FILE_WRITTEN_SUCCESS_PARAM_MESSAGE = "File written successfully to {}";
 
 
     public static final String SUCCESS_MESSAGE = "SUCCESS";
@@ -138,7 +198,6 @@ public class ConstantUtil {
     public static final String DEBUG = "DEBUG";
     public static final String ERROR = "ERROR";
 
-
     /**
      * Fields Constants
      */
@@ -160,6 +219,12 @@ public class ConstantUtil {
     public static final String MALE_FIELD = "male";
     public static final String FEMALE_FIELD = "female";
     public static final String AGE_FIELD = "age";
+
+    public static final String JSON_FIELD = "json";
+    public static final String OBJECT_FIELD = "object";
+    public static final String PATH_FIELD = "path";
+    public static final String DATA_FIELD = "data";
+    public static final String DATABASE_FIELD = "database";
 
     public static final String CURRENCY_FIELD = "currency";
     public static final String CURRENCY_TYPE_FIELD = "currencyType";

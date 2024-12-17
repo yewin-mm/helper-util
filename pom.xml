@@ -6,7 +6,7 @@
 
     <groupId>io.github.yewin-mm</groupId>
     <artifactId>helper-util</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 
     <name>Helper Utility Application</name>
     <description>A small simple utility project which is to help some java applications by utilizing common basic methods</description>
@@ -54,19 +54,44 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <log4j-version>2.24.3</log4j-version>
+        <jackson-databind-version>2.18.2</jackson-databind-version>
+        <bcprov-version>1.78</bcprov-version>
     </properties>
 
     <dependencies>
+        <!--  added slf4j and bridge in case if you want to use slfj4 api -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.4.12</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+
+        <!--  added log4j dependencies in case if you want to use asynchronous logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-version}</version>
         </dependency>
 
         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+
+        <!--  added jackson dependencies in case if you want to serialization and deserialization -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind-version}</version>
+        </dependency>
+
+        <!--  added jackson dependencies to use additional algorithms and cryptographic protocols -->
+        <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
-            <version>1.78</version>
+            <version>${bcprov-version}</version>
         </dependency>
 
     </dependencies>
