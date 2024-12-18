@@ -15,6 +15,7 @@ import static helper.ConstantUtil.INT_SIZE_TABLE;
 import static helper.ConstantUtil.LONG_SIZE_TABLE;
 import static helper.ConstantUtil.SPACE_REGEX;
 import static helper.PrintUtil.printWarn;
+import static helper.ValidationUtil.isEmptyString;
 import static helper.ValidationUtil.isNull;
 import static helper.ValidationUtil.isPositiveNumber;
 
@@ -25,7 +26,7 @@ import static helper.ValidationUtil.isPositiveNumber;
  * Package: helper
  */
 
-public class CommonUtil {
+public final class CommonUtil {
 
     private CommonUtil() {
     }
@@ -37,7 +38,7 @@ public class CommonUtil {
      * @param input the input string
      * @return the input string if not null, or an empty string if null
      */
-    public static String safeString(String input) {
+    public static String safeString(final String input) {
         if (isNull(input, INPUT_DATA_MESSAGE)) return "";
         return input.trim().equals("") ? "" : input;
     }
@@ -51,8 +52,8 @@ public class CommonUtil {
      * @param <T>  The type of elements in the list
      * @return A non-null list, which is the original list if not null, or an empty list if null
      */
-    public static <T> List<T> safeList(List<T> list) {
-        return list == null ? Collections.emptyList() : list;
+    public static <T> List<T> safeList(final List<T> list) {
+        return isNull(list) ? Collections.emptyList() : list;
     }
 
 
@@ -64,8 +65,8 @@ public class CommonUtil {
      * @param <T> The type of elements in the set
      * @return A non-null set, which is the original set if not null, or an empty set if null
      */
-    public static <T> Set<T> safeSet(Set<T> set) {
-        return set == null ? Collections.emptySet() : set;
+    public static <T> Set<T> safeSet(final Set<T> set) {
+        return isNull(set) ? Collections.emptySet() : set;
     }
 
 
@@ -76,8 +77,8 @@ public class CommonUtil {
      * @param <T>        the type of elements in the collection
      * @return the input collection if not null, or an empty collection if null
      */
-    public static <T> Collection<T> safeCollection(Collection<T> collection) {
-        return collection == null ? Collections.emptyList() : collection;
+    public static <T> Collection<T> safeCollection(final Collection<T> collection) {
+        return isNull(collection) ? Collections.emptyList() : collection;
     }
 
 
@@ -90,8 +91,8 @@ public class CommonUtil {
      * @param <V> The type of values in the map
      * @return A non-null map, which is the original map if not null, or an empty map if null
      */
-    public static <K, V> Map<K, V> safeMap(Map<K, V> map) {
-        return map == null ? Collections.emptyMap() : map;
+    public static <K, V> Map<K, V> safeMap(final Map<K, V> map) {
+        return isNull(map) ? Collections.emptyMap() : map;
     }
 
 
@@ -104,9 +105,9 @@ public class CommonUtil {
      * @param <T>        The type of elements in the collection.
      * @return A string with the collection elements joined by the separator.
      */
-    public static <T> String joinCollectionToString(Collection<T> collection, String separator) {
+    public static <T> String joinCollectionToString(final Collection<T> collection, final String separator) {
         StringJoiner joiner = new StringJoiner(safeString(separator));
-        for (T item : safeCollection(collection)) {
+        for (final T item : safeCollection(collection)) {
             if (isNull(item)) continue;
             joiner.add(toString(item));
         }
@@ -117,8 +118,11 @@ public class CommonUtil {
     /**
      * Converts a map of parameters to a query string.
      *
+     * @param <K> The type of the keys in the map.
+     * @param <V> The type of the values in the map.
      * @param params The map of parameters.
-     * @return The query string (e.g., "key1=value1&key2=value2").
+     * @param separator The separator used between first and second key-value pairs
+     * @return The query string
      */
     public static <K, V> String mapToQueryString(final Map<K, V> params, final String separator) {
         if (isNull(params, INPUT_DATA_MESSAGE)) {
@@ -126,7 +130,7 @@ public class CommonUtil {
         }
         StringBuilder query = new StringBuilder();
         Set<Map.Entry<K, V>> entrySet = params.entrySet();
-        for (Map.Entry<K, V> entry : entrySet) {
+        for (final Map.Entry<K, V> entry : entrySet) {
 
             if (query.length() > 0) {
                 query.append(separator);
@@ -142,9 +146,12 @@ public class CommonUtil {
     /**
      * Converts a map of parameters to a query string.
      *
-     * @param params        The map of parameters.
+     * @param <K> The type of the keys in the map.
+     * @param <V> The type of the values in the map.
+     * @param params The map of parameters.
+     * @param separator The separator used between first and second key-value pairs
      * @param isSkipNullKey Action to skip in query string if key is null.
-     * @return The query string (e.g., "key1=value1&key2=value2").
+     * @return The query string
      */
     public static <K, V> String mapToQueryString(final Map<K, V> params, final String separator, final boolean isSkipNullKey) {
         if (isNull(params, INPUT_DATA_MESSAGE)) {
@@ -152,7 +159,7 @@ public class CommonUtil {
         }
         StringBuilder query = new StringBuilder();
         Set<Map.Entry<K, V>> entrySet = params.entrySet();
-        for (Map.Entry<K, V> entry : entrySet) {
+        for (final Map.Entry<K, V> entry : entrySet) {
 
             if (isSkipNullKey) {
                 if (isNull(entry.getKey())) continue;
@@ -177,8 +184,8 @@ public class CommonUtil {
      * @param <T>          The type of the object.
      * @return The object if not null, or the default value if it is null.
      */
-    public static <T> T defaultIfNull(T obj, T defaultValue) {
-        return obj == null ? defaultValue : obj;
+    public static <T> T defaultIfNull(final T obj, final T defaultValue) {
+        return isNull(obj) ? defaultValue : obj;
     }
 
 
@@ -190,7 +197,7 @@ public class CommonUtil {
     public static void sleep(final long milliseconds) {
         try {
             Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             Thread.currentThread().interrupt(); // Restore interrupt status
         }
     }
@@ -199,12 +206,13 @@ public class CommonUtil {
     /**
      * Swaps two elements in an array.
      *
+     * @param <T>  The type of elements in the array
      * @param arr    The array containing the elements.
      * @param index1 The index of the first element.
      * @param index2 The index of the second element.
      */
-    public static <T> void swap(T[] arr, int index1, int index2) {
-        T temp = arr[index1];
+    public static <T> void swap(final T[] arr, final int index1, final int index2) {
+        final T temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
     }
@@ -216,10 +224,16 @@ public class CommonUtil {
      * @param length The length of the random string.
      * @return A random alphanumeric string.
      */
-    public static String generateRandomString(int length) {
-        SecureRandom random = new SecureRandom();
-        StringBuilder sb = new StringBuilder(length);
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    public static String generateRandomString(final int length) {
+        if(!isPositiveNumber(length)) return EMPTY_STRING;
+
+        if (length > 1000) {
+            throw new IllegalArgumentException("Length exceeds the maximum allowed value of 1000.");
+        }
+
+        final SecureRandom random = new SecureRandom();
+        final StringBuilder sb = new StringBuilder(length);
+        final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         for (int i = 0; i < length; i++) {
             sb.append(chars.charAt(random.nextInt(chars.length())));
         }
@@ -233,9 +247,9 @@ public class CommonUtil {
      * @param input The string to capitalize.
      * @return The string with the first letter capitalized, or the original string if null/empty.
      */
-    public static String capitalizeFirstLetter(String input) {
-        if (ValidationUtil.isEmptyString(input, INPUT_DATA_MESSAGE)) return input;
-        String trimmedInput = input.trim();
+    public static String capitalizeFirstLetter(final String input) {
+        if (isEmptyString(input, INPUT_DATA_MESSAGE)) return input;
+        final String trimmedInput = input.trim();
         return trimmedInput.substring(0, 1).toUpperCase() + trimmedInput.substring(1);
     }
 
@@ -246,12 +260,12 @@ public class CommonUtil {
      * @param input The string to capitalize.
      * @return The string with the first letter of each word capitalized, or the original string if null/empty.
      */
-    public static String capitalizeAllFirstLetter(String input) {
-        if (ValidationUtil.isEmptyString(input, INPUT_DATA_MESSAGE)) return input;
+    public static String capitalizeAllFirstLetter(final String input) {
+        if (isEmptyString(input, INPUT_DATA_MESSAGE)) return input;
 
-        String[] words = input.trim().toLowerCase().split(SPACE_REGEX);
-        StringBuilder capitalized = new StringBuilder();
-        for (String word : words) {
+        final String[] words = input.trim().toLowerCase().split(SPACE_REGEX);
+        final StringBuilder capitalized = new StringBuilder();
+        for (final String word : words) {
             capitalized.append(word.substring(0, 1).toUpperCase())
                     .append(word.substring(1))
                     .append(" ");
@@ -267,7 +281,7 @@ public class CommonUtil {
      * @param x The integer value whose length is to be determined
      * @return The number of digits in the positive integer. If the input is not positive, a warning is printed and 0 is returned.
      */
-    public static int getNumberLength(int x) {
+    public static int getNumberLength(final int x) {
         if (!isPositiveNumber(x)) {
             printWarn("Input integer is not positive.");
             return 0;
@@ -286,7 +300,7 @@ public class CommonUtil {
      * @return The number of digits in the positive long integer. If the input is not positive, a warning is printed and 0 is returned.
      * @throws IllegalArgumentException If the input exceeds the expected bounds for LONG_SIZE_TABLE
      */
-    public static long getNumberLength(long x) {
+    public static long getNumberLength(final long x) {
         if (!isPositiveNumber(x)) {
             printWarn("Input integer is not positive.");
             return 0;
@@ -308,7 +322,7 @@ public class CommonUtil {
      * @param input the input string to be converted
      * @return the lowercase version of the string, or the original string if null or empty
      */
-    public static String toLowerCase(String input) {
+    public static String toLowerCase(final String input) {
         return safeString(input).toLowerCase();
     }
 
@@ -319,7 +333,7 @@ public class CommonUtil {
      * @param input the input string to be converted
      * @return the uppercase version of the string, or the original string if null or empty
      */
-    public static String toUpperCase(String input) {
+    public static String toUpperCase(final String input) {
         return safeString(input).toUpperCase();
     }
 
@@ -330,7 +344,7 @@ public class CommonUtil {
      * @param input the input object to be converted
      * @return the string value
      */
-    public static String toString(Object input) {
+    public static String toString(final Object input) {
         return String.valueOf(input);
     }
 

@@ -8,9 +8,9 @@ package pojo;
  */
 
 public class ServiceResponse {
-    StatusObj status;
-    Object data;
-    String timestamp;
+    private StatusObj status;
+    private Object data;
+    private String timestamp;
 
     public ServiceResponse() {
     }
@@ -25,24 +25,12 @@ public class ServiceResponse {
         return status;
     }
 
-    public void setStatus(StatusObj status) {
-        this.status = status;
-    }
-
     public Object getData() {
         return data;
     }
 
-    public void setData(Object data) {
-        this.data = data;
-    }
-
     public String getTimestamp() {
         return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
     }
 
     @Override

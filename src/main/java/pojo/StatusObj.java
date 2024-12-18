@@ -8,8 +8,8 @@ package pojo;
  */
 
 public class StatusObj {
-    String status;
-    String message;
+    private String status;
+    private String message;
 
     public StatusObj() {
     }
@@ -23,16 +23,8 @@ public class StatusObj {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     @Override

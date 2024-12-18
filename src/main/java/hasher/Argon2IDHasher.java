@@ -14,10 +14,9 @@ import static helper.ConstantUtil.SIGN_REGEX;
  * Project_Link: <a href="https://github.com/yewin-mm/helper-util">helper-util</a>,
  * Package: hasher
  */
-
-public class Argon2IDHasher {
-    private static final Base64.Encoder base64Encoder = Base64.getEncoder().withoutPadding();
-    private static final Base64.Decoder base64Decoder = Base64.getDecoder();
+public final class Argon2IDHasher {
+    private static final Base64.Encoder BASE64_ENCODER = Base64.getEncoder().withoutPadding();
+    private static final Base64.Decoder BASE64_DECODER = Base64.getDecoder();
     private final int hashLength;
     private final int parallelism;
     private final int memory;
@@ -32,60 +31,90 @@ public class Argon2IDHasher {
         this.saltGenerator = new GenerateSalt(16);
     }
 
-
-    public String encode(String password) {
-        byte[] salt = this.saltGenerator.generateKey();
-        byte[] hash = new byte[this.hashLength];
-        Argon2Parameters params = (new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id))
+    /**
+     * Encodes a password using Argon2id hashing algorithm and returns a Base64 encoded string
+     * containing the salt and the hashed password separated by a dollar sign.
+     *
+     * @param password the password to be hashed.
+     * @return a Base64 encoded string containing the salt and the hashed password.
+     */
+    public String encode(final String password) {
+        final byte[] salt = this.saltGenerator.generateKey();
+        final byte[] hash = new byte[this.hashLength];
+        final Argon2Parameters params = (new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id))
                 .withVersion(Argon2Parameters.ARGON2_VERSION_13)
                 .withParallelism(this.parallelism)
                 .withMemoryAsKB(this.memory)
                 .withIterations(this.iterations)
                 .withSalt(salt)
                 .build();
-        Argon2BytesGenerator generator = new Argon2BytesGenerator();
+        final Argon2BytesGenerator generator = new Argon2BytesGenerator();
         generator.init(params);
         generator.generateBytes(password.toCharArray(), hash);
 
-        return base64Encoder.encodeToString(params.getSalt()) +
-                "$" + base64Encoder.encodeToString(hash);
+        return BASE64_ENCODER.encodeToString(params.getSalt()) +
+                "$" + BASE64_ENCODER.encodeToString(hash);
     }
 
-
-    public Argon2Hash decode(String encodedHash) throws IllegalArgumentException {
-        String[] parts = encodedHash.split(SIGN_REGEX);
+    /**
+     * Decodes an encoded Argon2 hash and returns an Argon2Hash object containing the hash and its parameters.
+     *
+     * @param encodedHash the Base64 encoded Argon2 hash string.
+     * @return an Argon2Hash object containing the decoded hash and its parameters.
+     * @throws IllegalArgumentException if the encoded hash is invalid.
+     */
+    public Argon2Hash decode(final String encodedHash) throws IllegalArgumentException {
+        final String[] parts = encodedHash.split(SIGN_REGEX);
 
         if (parts.length != 2) {
             throw new IllegalArgumentException("Invalid encoded Argon2-hash");
         }
 
-        Argon2Parameters.Builder paramsBuilder = new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id)
+        final Argon2Parameters.Builder paramsBuilder = new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id)
                 .withVersion(Argon2Parameters.ARGON2_VERSION_13)
                 .withIterations(this.iterations)
                 .withMemoryAsKB(this.memory)
                 .withParallelism(this.parallelism)
-                .withSalt(base64Decoder.decode(parts[0]));
+                .withSalt(BASE64_DECODER.decode(parts[0]));
 
-        return new Argon2Hash(base64Decoder.decode(parts[1]), paramsBuilder.build());
+        return new Argon2Hash(BASE64_DECODER.decode(parts[1]), paramsBuilder.build());
     }
 
-    public static class Argon2Hash {
+    /**
+     * A class representing a decoded Argon2 hash along with its parameters.
+     */
+    public static final class Argon2Hash {
         private final byte[] hash;
         private final Argon2Parameters parameters;
 
-        Argon2Hash(byte[] hash, Argon2Parameters parameters) {
+        /**
+         * Constructs an Argon2Hash object with the provided hash and parameters.
+         *
+         * @param hash       the decoded hash.
+         * @param parameters the Argon2 parameters used to generate the hash.
+         */
+        Argon2Hash(final byte[] hash, final Argon2Parameters parameters) {
             this.hash = Arrays.clone(hash);
             this.parameters = parameters;
         }
 
+        /**
+         * Returns a clone of the hash.
+         *
+         * @return a byte array containing the hash.
+         */
         public byte[] getHash() {
             return Arrays.clone(this.hash);
         }
 
+        /**
+         * Returns the Argon2 parameters used to generate the hash.
+         *
+         * @return the Argon2Parameters object.
+         */
         public Argon2Parameters getParameters() {
             return this.parameters;
         }
     }
-
 
 }

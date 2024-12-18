@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * Package: helper
  */
 
-public class PrintUtil {
+public final class PrintUtil {
 
     private PrintUtil() {
     }
@@ -23,7 +23,7 @@ public class PrintUtil {
      *
      * @param message The message to be printed.
      */
-    public static void printInfo(String message) {
+    public static void printInfo(final String message) {
         LOG.info(message);
     }
 
@@ -34,7 +34,7 @@ public class PrintUtil {
      * @param message The message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printInfo(String message, Object... args) {
+    public static void printInfo(final String message, final Object... args) {
         LOG.info(message, args);
     }
 
@@ -46,7 +46,7 @@ public class PrintUtil {
      * @param message The message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printInfo(Logger logger, String message, Object... args) {
+    public static void printInfo(final Logger logger, final String message, final Object... args) {
         if (logger != null) {
             logger.info(message, args);
         } else {
@@ -60,7 +60,7 @@ public class PrintUtil {
      *
      * @param message The warning message to be printed.
      */
-    public static void printWarn(String message) {
+    public static void printWarn(final String message) {
         LOG.warn(message);
     }
 
@@ -71,7 +71,7 @@ public class PrintUtil {
      * @param message The warning message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printWarn(String message, Object... args) {
+    public static void printWarn(final String message, final Object... args) {
         LOG.warn(message, args);
     }
 
@@ -83,7 +83,7 @@ public class PrintUtil {
      * @param message The warning message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printWarn(Logger logger, String message, Object... args) {
+    public static void printWarn(final Logger logger, final String message, final Object... args) {
         if (logger != null) {
             logger.warn(message, args);
         } else {
@@ -97,7 +97,7 @@ public class PrintUtil {
      *
      * @param message The error message to be printed.
      */
-    public static void printError(String message) {
+    public static void printError(final String message) {
         LOG.error(message);
     }
 
@@ -108,7 +108,7 @@ public class PrintUtil {
      * @param message The error message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printError(String message, Object... args) {
+    public static void printError(final String message, final Object... args) {
         LOG.error(message, args);
     }
 
@@ -120,7 +120,7 @@ public class PrintUtil {
      * @param message The error message to be printed.
      * @param args    The arguments to be included in the message.
      */
-    public static void printError(Logger logger, String message, Object... args) {
+    public static void printError(final Logger logger, final String message, final Object... args) {
         if (logger != null) {
             logger.error(message, args);
         } else {

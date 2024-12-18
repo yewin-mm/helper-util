@@ -22,7 +22,7 @@ import static helper.PrintUtil.printWarn;
  * Package: helper
  */
 
-public class ValidationUtil {
+public final class ValidationUtil {
 
     private ValidationUtil() {
     }
@@ -33,7 +33,7 @@ public class ValidationUtil {
      * @param obj The object to check
      * @return {@code true} if the object is null; {@code false} otherwise
      */
-    public static boolean isNull(Object obj) {
+    public static boolean isNull(final Object obj) {
         return obj == null;
     }
 
@@ -45,7 +45,7 @@ public class ValidationUtil {
      * @param message The message to print if the string is empty
      * @return {@code true} if the object is null; {@code false} otherwise
      */
-    public static boolean isNull(Object obj, String message) {
+    public static boolean isNull(final Object obj, final String message) {
         if (!isNull(obj)) return false;
         return printNull(message);
     }
@@ -57,8 +57,8 @@ public class ValidationUtil {
      * @param input The string to check
      * @return {@code true} if the string is null or empty after trimming whitespace; {@code false} otherwise
      */
-    public static boolean isEmptyString(String input) {
-        return input == null || input.trim().isEmpty();
+    public static boolean isEmptyString(final String input) {
+        return isNull(input) || input.trim().isEmpty();
     }
 
 
@@ -69,7 +69,7 @@ public class ValidationUtil {
      * @param message The message to print if the string is empty
      * @return {@code true} if the string is empty, and prints the provided message; {@code false} otherwise
      */
-    public static boolean isEmptyString(String input, String message) {
+    public static boolean isEmptyString(final String input, final String message) {
         if (!isEmptyString(input)) return false;
         return printEmpty(input, message, true);
     }
@@ -81,7 +81,7 @@ public class ValidationUtil {
      * @param list The list to check
      * @return {@code true} if the list is null or empty; {@code false} otherwise
      */
-    public static boolean isEmptyList(List<?> list) {
+    public static boolean isEmptyList(final List<?> list) {
         return isEmptyCollection(list);
     }
 
@@ -93,7 +93,7 @@ public class ValidationUtil {
      * @param message The message to print if the list is empty
      * @return {@code true} if the list is empty, and prints the provided message; {@code false} otherwise
      */
-    public static boolean isEmptyList(List<?> list, String message) {
+    public static boolean isEmptyList(final List<?> list, final String message) {
         return isEmptyCollection(list, message);
     }
 
@@ -104,7 +104,7 @@ public class ValidationUtil {
      * @param set The set to check
      * @return {@code true} if the set is null or empty; {@code false} otherwise
      */
-    public static boolean isEmptySet(Set<?> set) {
+    public static boolean isEmptySet(final Set<?> set) {
         return isEmptyCollection(set);
     }
 
@@ -116,7 +116,7 @@ public class ValidationUtil {
      * @param message The message to print if the set is empty
      * @return {@code true} if the set is empty, and prints the provided message; {@code false} otherwise
      */
-    public static boolean isEmptySet(Set<?> set, String message) {
+    public static boolean isEmptySet(final Set<?> set, final String message) {
         return isEmptyCollection(set, message);
     }
 
@@ -127,8 +127,8 @@ public class ValidationUtil {
      * @param map The map to check
      * @return {@code true} if the map is null or empty; {@code false} otherwise
      */
-    public static boolean isEmptyMap(Map<?, ?> map) {
-        return map == null || map.isEmpty();
+    public static boolean isEmptyMap(final Map<?, ?> map) {
+        return isNull(map) || map.isEmpty();
     }
 
 
@@ -139,8 +139,8 @@ public class ValidationUtil {
      * @param message The message to print if the map is null or empty
      * @return {@code true} if the map is null or empty, and prints the provided message; {@code false} otherwise
      */
-    public static boolean isEmptyMap(Map<?, ?> map, String message) {
-        return (map == null || map.isEmpty()) && printEmpty(map, message);
+    public static boolean isEmptyMap(final Map<?, ?> map, final String message) {
+        return (isNull(map) || map.isEmpty()) && printEmpty(map, message);
     }
 
 
@@ -150,8 +150,8 @@ public class ValidationUtil {
      * @param collection The collection to check
      * @return {@code true} if the collection is null or empty; {@code false} otherwise
      */
-    public static boolean isEmptyCollection(Collection<?> collection) {
-        return collection == null || collection.isEmpty();
+    public static boolean isEmptyCollection(final Collection<?> collection) {
+        return isNull(collection) || collection.isEmpty();
     }
 
 
@@ -162,8 +162,8 @@ public class ValidationUtil {
      * @param message    The message to print if the collection is empty
      * @return {@code true} if the collection is empty, and prints the provided message; {@code false} otherwise
      */
-    public static boolean isEmptyCollection(Collection<?> collection, String message) {
-        return (collection == null || collection.isEmpty()) && printEmpty(collection, message);
+    public static boolean isEmptyCollection(final Collection<?> collection, final String message) {
+        return (isNull(collection) || collection.isEmpty()) && printEmpty(collection, message);
     }
 
 
@@ -173,11 +173,11 @@ public class ValidationUtil {
      * @param email The email address to check
      * @return {@code true} if the email has a valid format; {@code false} otherwise
      */
-    public static boolean isValidEmail(String email) {
+    public static boolean isValidEmail(final String email) {
         if (isEmptyString(email))
             return printEmpty(email, "Input email address", false);
-        Pattern pattern = Pattern.compile(EMAIL_REGEX);
-        Matcher matcher = pattern.matcher(email);
+        final Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        final Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
@@ -189,7 +189,7 @@ public class ValidationUtil {
      * @param message The message to print if the email format is invalid
      * @return {@code true} if the email has a valid format; {@code false} and prints the message otherwise
      */
-    public static boolean isValidEmail(String email, String message) {
+    public static boolean isValidEmail(final String email, final String message) {
         if (isValidEmail(email)) return true;
         return printInvalidFormat(email, message);
     }
@@ -201,7 +201,7 @@ public class ValidationUtil {
      * @param input The integer to check
      * @return {@code true} if the integer is positive; {@code false} otherwise
      */
-    public static boolean isPositiveNumber(Integer input) {
+    public static boolean isPositiveNumber(final Integer input) {
         return input != null && input > 0;
     }
 
@@ -213,7 +213,7 @@ public class ValidationUtil {
      * @param message The message to print if the integer is not positive
      * @return {@code true} if the integer is positive; {@code false} and prints the message otherwise
      */
-    public static boolean isPositiveNumber(Integer input, String message) {
+    public static boolean isPositiveNumber(final Integer input, final String message) {
         return input != null && input > 0 || printNegative(input, message);
     }
 
@@ -224,7 +224,7 @@ public class ValidationUtil {
      * @param input The long to check
      * @return {@code true} if the long is positive; {@code false} otherwise
      */
-    public static boolean isPositiveNumber(Long input) {
+    public static boolean isPositiveNumber(final Long input) {
         return input != null && input > 0;
     }
 
@@ -236,7 +236,7 @@ public class ValidationUtil {
      * @param message The message to print if the long is not positive
      * @return {@code true} if the long is positive; {@code false} and prints the message otherwise
      */
-    public static boolean isPositiveNumber(Long input, String message) {
+    public static boolean isPositiveNumber(final Long input, final String message) {
         return input != null && input > 0 || printNegative(input, message);
     }
 
@@ -248,7 +248,7 @@ public class ValidationUtil {
      * @param input The string to check
      * @return {@code true} if the string represents a valid integer; {@code false} otherwise
      */
-    public static boolean isValidNumber(String input) {
+    public static boolean isValidNumber(final String input) {
         try {
             Double.parseDouble(input); // Allows floating-point numbers
             return true;
@@ -265,7 +265,7 @@ public class ValidationUtil {
      * @param message The message to print if the string does not represent a valid number
      * @return {@code true} if the string represents a valid number; {@code false} and prints the message otherwise
      */
-    public static boolean isValidNumber(String input, String message) {
+    public static boolean isValidNumber(final String input, final String message) {
         try {
             Double.parseDouble(input);
             return true;
@@ -281,7 +281,7 @@ public class ValidationUtil {
      * @param input The string to check
      * @return {@code true} if the string represents a valid integer; {@code false} otherwise
      */
-    public static boolean isIntegerNumber(String input) {
+    public static boolean isIntegerNumber(final String input) {
         try {
             Integer.parseInt(input);
             return true;
@@ -298,7 +298,7 @@ public class ValidationUtil {
      * @param message The message to print if the string does not represent a valid integer
      * @return {@code true} if the string represents a valid integer; {@code false} and prints the message otherwise
      */
-    public static boolean isIntegerNumber(String input, String message) {
+    public static boolean isIntegerNumber(final String input, final String message) {
         try {
             Integer.parseInt(input);
             return true;
@@ -314,7 +314,7 @@ public class ValidationUtil {
      * @param input The string to check
      * @return {@code true} if the string represents a valid long; {@code false} otherwise
      */
-    public static boolean isLongNumber(String input) {
+    public static boolean isLongNumber(final String input) {
         try {
             Long.parseLong(input);
             return true;
@@ -331,7 +331,7 @@ public class ValidationUtil {
      * @param message The message to print if the string does not represent a valid long
      * @return {@code true} if the string represents a valid long; {@code false} and prints the message otherwise
      */
-    public static boolean isLongNumber(String input, String message) {
+    public static boolean isLongNumber(final String input, final String message) {
         try {
             Long.parseLong(input);
             return true;
@@ -345,42 +345,42 @@ public class ValidationUtil {
      * Printing methods as per input messages and values
      */
 
-    private static boolean printNull(String message) {
+    private static boolean printNull(final String message) {
         printWarn(NULL_PARAM_MESSAGE, message);
         return true;
     }
 
-    private static boolean printEmpty(String input, String message, boolean action) {
+    private static boolean printEmpty(final String input, final String message, final boolean action) {
         printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, message, input);
         return action;
     }
 
-    private static boolean printEmpty(Map<?, ?> map, String message) {
+    private static boolean printEmpty(final Map<?, ?> map, final String message) {
         printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, message, map);
         return true;
     }
 
-    private static boolean printEmpty(Collection<?> collection, String message) {
+    private static boolean printEmpty(final Collection<?> collection, final String message) {
         printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, message, collection);
         return true;
     }
 
-    private static boolean printInvalidFormat(String input, String message) {
+    private static boolean printInvalidFormat(final String input, final String message) {
         printWarn(INVALID_FORMAT_INPUT_PARAM_MESSAGE, message, input);
         return false;
     }
 
-    private static boolean printNegative(Integer input, String message) {
+    private static boolean printNegative(final Integer input, final String message) {
         printWarn(NULL_OR_NOT_POSITIVE_PARAM_MESSAGE, message, input);
         return false;
     }
 
-    private static boolean printNegative(Long input, String message) {
+    private static boolean printNegative(final Long input, final String message) {
         printWarn(NULL_OR_NOT_POSITIVE_PARAM_MESSAGE, message, input);
         return false;
     }
 
-    private static boolean printNotNumber(String input, String message) {
+    private static boolean printNotNumber(final String input, final String message) {
         printWarn(NOT_NUMBER_PARAM_MESSAGE, message, input);
         return false;
     }

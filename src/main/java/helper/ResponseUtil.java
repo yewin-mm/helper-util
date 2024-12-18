@@ -12,22 +12,24 @@ import static helper.DateTimeUtil.getCurrentDateTime;
  * Package: helper
  */
 
-public class ResponseUtil {
+public final class ResponseUtil {
 
     private ResponseUtil() {
     }
 
     /**
-     * Get sample formatted Response Object as per input status, message, data and zone id.
+     * Constructs a formatted {@link ServiceResponse} object based on the provided status, message, data, and zone ID.
+     * This method creates a standardized response object that includes a {@link StatusObj} for the status and message,
+     * the provided data, and the current timestamp based on the specified time zone.
      *
-     * @param statusStr - String
-     * @param message   - String
-     * @param data      - Object
-     * @param zoneId    - String
-     * @return ServiceResponse - response object which already prepared by setting status object, data and timestamp.
+     * @param statusStr - The status string representing the current status (e.g., "success" or "error").
+     * @param message   - The message to be included with the response.
+     * @param data      - The data to be included in the response, can be any object.
+     * @param zoneId    - The time zone ID used to generate the current timestamp (e.g., "GMT", "Asia/Singapore").
+     * @return A {@link ServiceResponse} object containing the status, message, data, and timestamp.
      */
-    public static ServiceResponse getResponseObj(String statusStr, String message, Object data, String zoneId) {
-        StatusObj status = new StatusObj(statusStr, message);
+    public static ServiceResponse getResponseObj(final String statusStr, final String message, final Object data, final String zoneId) {
+        final StatusObj status = new StatusObj(statusStr, message);
         return new ServiceResponse(status, data, getCurrentDateTime(zoneId));
     }
 

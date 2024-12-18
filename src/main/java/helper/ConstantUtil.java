@@ -7,7 +7,7 @@ package helper;
  * Package: helper
  */
 
-public class ConstantUtil {
+public final class ConstantUtil {
 
     private ConstantUtil() {
     }

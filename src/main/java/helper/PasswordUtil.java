@@ -2,8 +2,11 @@ package helper;
 
 import hasher.Argon2IDHasher;
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static helper.ConstantUtil.NULL_OR_EMPTY_PARAM_MESSAGE;
+import static helper.PrintUtil.printError;
+import static helper.PrintUtil.printWarn;
+import static helper.ValidationUtil.isEmptyString;
 
 /**
  * Author: Ye Win,
@@ -12,81 +15,86 @@ import org.slf4j.LoggerFactory;
  * Package: helper
  */
 
-public class PasswordUtil {
-
-    private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
+public final class PasswordUtil {
 
     private PasswordUtil() {
     }
 
     /**
-     * Encode input Password by using Argon2IDHasher algorithm
+     * Encodes the input raw password using the Argon2IDHasher algorithm.
      *
-     * @param rawPassword - String
-     * @return String - encoded password value
+     * @param rawPassword The raw password to be encoded.
+     * @return The encoded password string, or {@code null} if the raw password is invalid or encoding fails.
      */
-    public static String encode(String rawPassword) {
+    public static String encode(final String rawPassword) {
         try {
-            if (ValidationUtil.isEmptyString(rawPassword)) {
-                LOG.warn("Raw Password is null or empty.");
+            if (isEmptyString(rawPassword)) {
+                printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, "Raw Password", rawPassword);
                 return null;
             }
 
-            Argon2IDHasher argon2IDHasher = new Argon2IDHasher();
+            final Argon2IDHasher argon2IDHasher = new Argon2IDHasher();
             return argon2IDHasher.encode(rawPassword);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            LOG.error("Cannot Encode Password.");
+        } catch (final Exception e) {
+            printError("Cannot Encode Password. Error: {}", e.getMessage());
             return null;
         }
     }
 
 
     /**
-     * Check and Validate between input raw password and encoded password
+     * Validates if the input raw password matches the provided encoded password.
+     * Compares the raw password with the encoded password in constant time to prevent timing attacks.
      *
-     * @param rawPassword     - String
-     * @param encodedPassword - String
-     * @return boolean - true if input password and encoded password are same
-     * - false if input password and encoded password are not same
+     * @param rawPassword     The raw password to validate.
+     * @param encodedPassword The previously encoded password to compare against.
+     * @return {@code true} if the raw password matches the encoded password; {@code false} otherwise.
+     * If either password is empty or invalid, it will return {@code false}.
      */
-    public static boolean checkPassword(String rawPassword, String encodedPassword) {
+    public static boolean checkPassword(final String rawPassword, final String encodedPassword) {
         try {
-            if (ValidationUtil.isEmptyString(rawPassword)) {
-                LOG.warn("Raw Password is null or empty.");
+            if (isEmptyString(rawPassword)) {
+                printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, "Raw Password", rawPassword);
                 return false;
             }
 
-            if (ValidationUtil.isEmptyString(encodedPassword)) {
-                LOG.warn("Encoded Password is null or empty.");
+            if (isEmptyString(encodedPassword)) {
+                printWarn(NULL_OR_EMPTY_PARAM_MESSAGE, "Encoded Password", encodedPassword);
                 return false;
 
             } else {
-                Argon2IDHasher argon2IDHasher = new Argon2IDHasher();
-                Argon2IDHasher.Argon2Hash decodedHash;
+                final Argon2IDHasher argon2IDHasher = new Argon2IDHasher();
+                final Argon2IDHasher.Argon2Hash decodedHash;
 
                 decodedHash = argon2IDHasher.decode(encodedPassword);
 
-                byte[] hashBytes = new byte[decodedHash.getHash().length];
-                Argon2BytesGenerator generator = new Argon2BytesGenerator();
+                final byte[] hashBytes = new byte[decodedHash.getHash().length];
+                final Argon2BytesGenerator generator = new Argon2BytesGenerator();
                 generator.init(decodedHash.getParameters());
                 generator.generateBytes(rawPassword.toCharArray(), hashBytes);
                 return constantTimeArrayEquals(decodedHash.getHash(), hashBytes);
             }
 
-        } catch (IllegalArgumentException var6) {
-            LOG.warn("Malformed Password Hash", var6);
+        } catch (final IllegalArgumentException var6) {
+            printWarn("Malformed Password Hash", var6);
             return false;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
-            LOG.error("Cannot Check Password.");
+            printError("Cannot Check Password.");
             return false;
         }
-
     }
 
-    private static boolean constantTimeArrayEquals(byte[] expected, byte[] actual) {
+
+    /**
+     * Compares two byte arrays in constant time to avoid timing attacks.
+     *
+     * @param expected The expected byte array (usually the hash of the password).
+     * @param actual   The actual byte array (usually the result of hash comparison).
+     * @return {@code true} if both byte arrays are equal; {@code false} otherwise.
+     */
+    private static boolean constantTimeArrayEquals(final byte[] expected, final byte[] actual) {
         if (expected.length != actual.length) {
             return false;
         } else {

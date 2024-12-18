@@ -25,7 +25,7 @@ import static helper.PrintUtil.printWarn;
  * Package: helper
  */
 
-public class JsonUtil {
+public final class JsonUtil {
 
     private JsonUtil() {
     }
@@ -39,7 +39,7 @@ public class JsonUtil {
      * @param object The object to convert.
      * @return The JSON string representation of the object.
      */
-    public static String objectToJson(Object object) {
+    public static String objectToJson(final Object object) {
         try {
             if (!ValidationUtil.isNull(object, INPUT_OBJECT_MESSAGE)) {
                 return OBJECT_MAPPER.writeValueAsString(object);
@@ -61,7 +61,7 @@ public class JsonUtil {
      * @param clazz The class of the object to convert to.
      * @return The object converted from the JSON string.
      */
-    public static <T> T jsonToObject(String json, Class<T> clazz) {
+    public static <T> T jsonToObject(final String json, final Class<T> clazz) {
         try {
             if (!ValidationUtil.isEmptyString(json, INPUT_JSON_STRING_MESSAGE)) {
                 return OBJECT_MAPPER.readValue(json, clazz);
@@ -83,7 +83,7 @@ public class JsonUtil {
      * @param <T>      The type of the object.
      * @return An object of type T representing the JSON data.
      */
-    public static <T> T readJsonFile(String filePath, Class<T> clazz) {
+    public static <T> T readJsonFile(final String filePath, final Class<T> clazz) {
         try {
             if (!ValidationUtil.isEmptyString(filePath, INPUT_FILE_PATH_MESSAGE)) {
                 return OBJECT_MAPPER.readValue(new File(filePath), clazz);
@@ -102,9 +102,8 @@ public class JsonUtil {
      *
      * @param filePath The path to the JSON file.
      * @param object   The object to be written to the file.
-     * @throws IOException If an error occurs during writing the file.
      */
-    public static void writeJsonFile(String filePath, Object object) {
+    public static void writeJsonFile(final String filePath, final Object object) {
         try {
             // Validate the file path
             if (ValidationUtil.isEmptyString(filePath, INPUT_FILE_PATH_MESSAGE) ||
