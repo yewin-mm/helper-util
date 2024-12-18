@@ -148,7 +148,7 @@ Set up maven and java in your machine.
 
 <a name="printutil"></a>
 ##### PrintUtil
-* Here are the sample usage for `CommonUtil class` that you can apply in your application.
+* Here are the sample usage for `PrintUtil class` that you can apply in your application.
 
 ```java
 
@@ -481,7 +481,7 @@ Set up maven and java in your machine.
 
 <a name="jsonutil"></a>
 ##### JsonUtil
-* Here are the sample usage for `PasswordUtil class` that you can apply in your application.
+* Here are the sample usage for `JsonUtil class` that you can apply in your application.
 
 ```java
 
